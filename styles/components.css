@@ -1,0 +1,628 @@
+/* Reusable panels, profile actions, projects, schools, and experience entries. */
+
+.panel {
+  border: 1px solid var(--line);
+  margin: 0 0 16px;
+  background: #fff;
+  scroll-margin-top: 16px;
+}
+
+.panel > h2 {
+  margin: 0;
+  background: var(--tint);
+  color: var(--blue);
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--text-body);
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.contact-links {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 8px;
+  padding: 8px;
+}
+
+.contact-links a, .contact-links button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  padding: 6px 0;
+  font-size: var(--text-small);
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.contact-links svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.contact-links .icon-outline {
+  fill: none;
+}
+
+.contact-links .external-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  fill: none;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: 85px minmax(0, 1fr);
+  gap: 2px;
+  padding: 3px;
+  margin: 0;
+  font-size: var(--text-small);
+}
+
+.details dt {
+  background: var(--tint);
+  color: var(--blue);
+  padding: 7px;
+  font-weight: bold;
+}
+
+.details dd {
+  background: var(--light);
+  margin: 0;
+  padding: 7px;
+  overflow-wrap: anywhere;
+}
+
+.school {
+  padding: 12px;
+  font-size: var(--text-small);
+}
+
+.school + .school {
+  border-top: 1px solid var(--line);
+}
+
+.school b {
+  color: var(--blue);
+}
+
+.school span {
+  font-size: var(--text-small);
+  color: #666;
+}
+
+.welcome p {
+  font-size: var(--text-body);
+}
+
+.listening {
+  font-size: var(--text-small);
+}
+
+.audio-player {
+  border: 1px solid var(--line);
+  background: var(--light);
+}
+
+.audio-player-head {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: var(--blue);
+  color: #fff;
+}
+
+.audio-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  background: var(--tint);
+}
+
+.audio-cover svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.5;
+}
+
+.audio-now b, .audio-now > span {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.audio-now {
+  min-width: 0;
+}
+
+.audio-current-title .audio-marquee {
+  display: inline-flex;
+  width: max-content;
+  animation: audio-scroll 24s linear infinite;
+}
+
+.audio-marquee > span {
+  flex-shrink: 0;
+  padding-right: 32px;
+}
+
+.audio-current-title:hover .audio-marquee {
+  animation-play-state: paused;
+}
+
+@keyframes audio-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audio-current-title .audio-marquee {
+    display: block;
+    width: auto;
+    animation: none;
+  }
+
+  .audio-marquee > span {
+    display: block;
+    overflow: hidden;
+    padding-right: 0;
+    text-overflow: ellipsis;
+  }
+
+  .audio-marquee > span[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+.audio-now > span {
+  color: #d9e5f6;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.audio-controls span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--tint);
+}
+
+.audio-controls .audio-primary {
+  width: 31px;
+  height: 31px;
+}
+
+.audio-controls svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.audio-controls .audio-primary svg {
+  width: 17px;
+  height: 17px;
+  fill: var(--blue);
+  stroke: none;
+}
+
+.audio-timeline {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--line);
+  color: #666;
+  font-family: 'Courier New', monospace;
+}
+
+.audio-progress {
+  flex: 1;
+  height: 3px;
+  background: var(--line);
+}
+
+.audio-progress span {
+  display: block;
+  width: 41%;
+  height: 100%;
+  background: var(--blue);
+}
+
+.audio-playlist {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.audio-playlist li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 7px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+
+.audio-playlist li:nth-child(even) {
+  background: var(--light);
+}
+
+.audio-playlist .is-current {
+  background: var(--tint);
+}
+
+.audio-playlist li:last-child {
+  border-bottom: 0;
+}
+
+.audio-playlist li > div {
+  min-width: 0;
+}
+
+.audio-track-number {
+  color: #666;
+  font-family: 'Courier New', monospace;
+}
+
+.audio-song, .audio-artist {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.audio-song {
+  color: var(--blue);
+}
+
+.audio-artist {
+  flex: 1;
+  min-width: 0;
+  color: #666;
+}
+
+.audio-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.audio-listen {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.section-body {
+  padding: 12px 10px;
+}
+
+.section-body h3 {
+  color: var(--blue);
+}
+
+.section-body > p:last-child {
+  margin-bottom: 0;
+}
+
+.blurb-group p:last-child {
+  margin-bottom: 0;
+}
+
+.project-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+.project-link-actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: var(--text-small);
+  font-weight: normal;
+}
+
+.project-link-actions a {
+  white-space: nowrap;
+}
+
+.project-description {
+  margin-bottom: 17px;
+  scroll-margin-top: 16px;
+}
+
+.project-description:last-child, .project-description p {
+  margin-bottom: 0;
+}
+
+.project-description h3 {
+  color: var(--blue);
+}
+
+.experience-row {
+  border-bottom: 1px solid var(--line);
+}
+
+.experience-row > div {
+  padding: 12px;
+}
+
+.experience-row:last-child {
+  border-bottom: 0;
+}
+
+.experience-row .employer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  background: var(--light);
+  border-bottom: 1px solid var(--line);
+  font-size: var(--text-small);
+}
+
+.company-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.company-name {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.employment-dates {
+  color: #666;
+  white-space: nowrap;
+}
+
+.yc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.yc-badge img {
+  display: block;
+  flex-shrink: 0;
+}
+
+.experience-row p {
+  font-size: var(--text-small);
+  margin: 7px 0 0;
+}
+
+.contact-note {
+  text-align: center;
+  font-size: var(--text-small);
+  margin: 0 10px 12px;
+}
+
+.identity {
+  text-align: left;
+}
+
+.identity > h2 {
+  text-align: left;
+}
+
+.profile-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 10px 10px;
+}
+
+.profile-bio {
+  margin: 0;
+  padding: 0 10px 14px;
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: #444;
+}
+
+.profile-cover {
+  flex-shrink: 0;
+}
+
+.profile-caption {
+  padding: 0;
+  min-width: 0;
+}
+
+.identity h1 {
+  font-size: var(--text-body);
+  line-height: 1.2;
+  font-weight: bold;
+  margin: 0 0 8px;
+}
+
+.profile-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--text-small);
+  color: #666;
+  margin: 0;
+}
+
+.profile-location svg {
+  flex-shrink: 0;
+}
+
+.forum-avatar {
+  display: block;
+  width: 66px;
+  height: 66px;
+  border: 1px solid var(--line);
+  image-rendering: pixelated;
+}
+
+.profile-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--blue);
+  font-size: var(--text-small);
+  margin: 8px 0 0;
+}
+
+.online-dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  background: var(--blue);
+  border: 1px solid #00246e;
+}
+
+.link-button, .poke-button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font: inherit;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.link-button:hover, .poke-button:hover {
+  color: #001d59;
+}
+
+.link-button:focus-visible, .poke-button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Native popover provides opening, closing, Escape, and outside-click dismissal. */
+.resume-window {
+  width: min(640px, calc(100% - 32px));
+  height: min(720px, 85dvh);
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--blue);
+  background: #fff;
+  color: #222;
+}
+
+.resume-window:popover-open {
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-window::backdrop {
+  background: rgb(0 51 153 / 12%);
+}
+
+.resume-window-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  background: var(--tint);
+  color: var(--blue);
+}
+
+.resume-window-header .link-button {
+  font-size: var(--text-small);
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  background: var(--tint);
+  text-decoration: none;
+}
+
+.resume-window-header .link-button:active {
+  background: var(--light);
+}
+
+.resume-window iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+}
+
+.resume-window-footer {
+  margin: 0;
+  padding: 8px 10px;
+  border-top: 1px solid var(--line);
+  background: var(--light);
+  font-size: var(--text-small);
+  text-align: center;
+}
+
+/* A small press effect, using only the native button state and CSS. */
+@media (prefers-reduced-motion: no-preference) {
+  .identity:has(.poke-button:active) .forum-avatar {
+    animation: poke-shake 300ms ease-in-out;
+  }
+}
+
+@keyframes poke-shake {
+  0%, 100% {
+    transform: translateX(0) rotate(0);
+  }
+
+  20% {
+    transform: translateX(-3px) rotate(-3deg);
+  }
+
+  40% {
+    transform: translateX(3px) rotate(3deg);
+  }
+
+  60% {
+    transform: translateX(-2px) rotate(-2deg);
+  }
+
+  80% {
+    transform: translateX(2px) rotate(2deg);
+  }
+}
